@@ -39,16 +39,21 @@ public class main extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
 
-        if (session.getCredit().equalsIgnoreCase("Admin")) {
-            this.tab_karyaawan.setEnabled(true);
-            this.btn_edit.setVisible(true);
-            this.btn_hapus.setVisible(true);
+       if (session.getStatusLogin() == "Aktif") {
+            
+            txt_user.setText(session.getUserID());
+            
+            if (session.getCredit().equalsIgnoreCase("Admin")) {
+                this.tab_karyaawan.setEnabled(true);
+                this.btn_edit.setVisible(true);
+                this.btn_hapus.setVisible(true);
 
-        } else if (session.getCredit().equalsIgnoreCase("kasir")) {
-            this.tab_karyaawan.removeAll();
-            this.btn_edit.setVisible(false);
-            this.btn_hapus.setVisible(false);
+            } else if (session.getCredit().equalsIgnoreCase("kasir")) {
+                this.tab_karyaawan.removeAll();
+                this.btn_edit.setVisible(false);
+                this.btn_hapus.setVisible(false);
 
+            }
         }
     }
 
